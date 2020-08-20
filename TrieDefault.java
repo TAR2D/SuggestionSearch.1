@@ -1,4 +1,4 @@
-public class Trie {
+public class TrieDefault {
     TrieNode root;
 
     public Trie() {
