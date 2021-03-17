@@ -33,8 +33,7 @@ public class userInput {
             if (read.hasNextInt()) {
                 selection = read.nextInt();
 
-
-                if (!(selection < 0 || selection > 3)) {
+                if (!(selection < 0 || selection > 5)) {
                     isInteger = true;
                 } else {
                     printData.printError(selection);
@@ -45,6 +44,7 @@ public class userInput {
                 isInteger = false;
             }
         } while (!isInteger);
+        printData.printActiveProcess(selection, DefaultUser.getName());//printing info based on selection
         return selection;
     }
 
@@ -58,7 +58,7 @@ public class userInput {
      */
     public void searchInput(int chosenFeature) {
         boolean isWord;
-        printData.printActiveProcess(chosenFeature);
+
         printData.printQuestion(1);
         Scanner userInputWord = new Scanner(System.in);//Take user response
         String key = "";
@@ -101,8 +101,8 @@ public class userInput {
                 }
             } while (!isInteger);
             //------------------------------------------------------------------------------
+            DefaultUser.insertHist(main.getChooseSuggestion(chosenSuggestion));
             main.update(chosenSuggestion);//update search information with priorities
-            DefaultUser.insertHist(main.getChooseSuggestion(chosenSuggestion + 1));
             //------------------------------------------------------------------------------
             //dataStorage.fileContentUpdater(dictionary.top5Suggestions(chosenSuggestion));//Update data to cache.txt TODO
             //update(dictionary, 1);//update first suggestion
