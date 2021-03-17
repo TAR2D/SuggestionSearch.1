@@ -6,4 +6,4 @@
 ### Order of suggestion is Alphabeticalcan be updated according to priorities
 ### [3] LimitedSuggestion with LL : Gives limited no. of suggestions with controlled length. Ability of prioritization.
 ### Order of suggestion will be alphabetical and according to your query length.
-### With User Login, User History and more.
+### Added User Login, User History and more.
