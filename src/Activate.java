@@ -27,10 +27,21 @@ public class Activate {
             if (getIO.userValidate())
                 while (Active) {
                     int selectedFeature = getIO.featureChoice();
-                    getIO.searchInput(selectedFeature);
-                    if(selectedFeature != 1)
-                    getIO.userSelectionAndPrioritization();
+                    //logout
+                    if(selectedFeature == 4)
+                        Active = false;
+                    //quit
+                    if (selectedFeature == 5) {
+                        Active = false;
+                        attempt = 6;
+                    }
+                    if (Active) {
+                        getIO.searchInput(selectedFeature);
+                        if (selectedFeature != 1)
+                            getIO.userSelectionAndPrioritization();
+                    }
                 }
+            Active = true;
             attempt++;
             if (attempt == 5)
                 System.out.println("[Message]: Last attempt..");
