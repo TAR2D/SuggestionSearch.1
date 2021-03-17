@@ -53,13 +53,17 @@ public class main {
      * @param query : user input word. Suggestions will be based on this key and priorities.
      */
     static void autoComplete(String query, int feature, boolean prioritise) {
-        boolean pLevel = false;
+        boolean sizeControl = false;
         storage.autoCompleteHelper(query.toCharArray(), feature);
         if (feature == 1)
-            pLevel = true;
+            sizeControl = true;
         if (prioritise) //TODO Private Account
-            storage.prioritise(pLevel);
-        printData.list(storage.getTopSuggestion(), pLevel);
+            storage.prioritise(sizeControl);
+        printData.list(storage.getTopSuggestion(), sizeControl); //printing Suggestions
+        if (sizeControl) {
+            storage.getTopSuggestion().clear(); //clearing Previous Suggestion
+            System.out.println("Yes");
+        }
     }
 
     /**
@@ -74,6 +78,7 @@ public class main {
         } else {
             storage.insertWeight(storage.getTopSuggestion().get(chosenKey - 1).toCharArray());
             System.out.println("Weight added to suggestion " + storage.getTopSuggestion().get(chosenKey - 1));
+            storage.getTopSuggestion().clear(); //clearing Previous Suggestion
         }
     }
 
