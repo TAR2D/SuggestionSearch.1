@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class TrieAC {
     TrieNode root;
@@ -42,7 +41,7 @@ public class TrieAC {
         return current;
     }
 
-    public boolean delete(char[] word) {
+    public boolean deleteHelper(char[] word) {
         return delete(word, root, 0);
     }
 
@@ -143,8 +142,9 @@ public class TrieAC {
         StringBuilder build = new StringBuilder(utilityFunctions.charToString(query));
         if (feature == 1 || feature == 2)
             printDataRec(temp, build, query.length);
-        else if (feature == 3)
+        else if (feature == 3) {
             printDataRecLimitedLength(temp, build, query.length, 3);
+        }
     }
 
     public void autoCompleteHelper(char[] query, int feature) {
