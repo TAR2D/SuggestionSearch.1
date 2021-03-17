@@ -49,7 +49,7 @@ public class printData {
     }
 
     static void printFeatures() {
-        System.out.println("\n\n[Message]Feature List: \n[1] All Suggestion\n[2] LimitedSuggestion\n[3] LimitedSuggestion with Limited Length\n");
+        System.out.println("\n\n[Message]Feature List: \n[1] All Suggestion\n[2] LimitedSuggestion\n[3] LimitedSuggestion with Limited Length\n[4] Logout\n[5] Exit");
     }
 
     static void printQuestion(int value) {
@@ -80,12 +80,16 @@ public class printData {
             System.out.print("Wrong value 'whatFor'");
     }
 
-    static void printActiveProcess(int value) {
+    static void printActiveProcess(int value, String id) {
         if (value == 1)
             System.out.print("[Update] All Suggestion Activated");
-        else if (value == 2)
+        if (value == 2)
             System.out.print("[Update] Limited Suggestion Activated");
-        else if (value == 3)
+        if (value == 3)
             System.out.print("[Update] Limited Suggestion with LL Activated");
+        if (value == 4)
+            System.out.print("[Update] Logging out id:" + id);
+        if (value == 5)
+            System.out.print("[Update] Exiting...");
     }
 }
